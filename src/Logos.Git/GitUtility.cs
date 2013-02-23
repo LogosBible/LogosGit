@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using LibGit2Sharp;
 using Logos.Git.GitHub;
 using Logos.Utility;
@@ -24,7 +25,8 @@ namespace Logos.Git
 		/// <returns>True if the local repository is in sync, false if not.</returns>
 		public static bool IsLocalRepositorySynchronizedToRemote(string localRepositoryPath, string remoteOwner, string remoteRepository, string remoteBranch)
 		{
-			string latestCommitId = GitHubClient.GetLatestCommitId(remoteOwner, remoteRepository, remoteBranch);
+			GitHubClient client = new GitHubClient(new Uri("http://git/api/v3/"));
+			string latestCommitId = client.GetLatestCommitId(remoteOwner, remoteRepository, remoteBranch);
 
 			// HACK: it appears that LibGit2Sharp (or perhaps LibGit2) has trouble with submodules
 			//   where the .git file points to the parent repo's modules folder. Force the working
