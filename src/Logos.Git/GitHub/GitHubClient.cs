@@ -118,6 +118,16 @@ namespace Logos.Git.GitHub
 		}
 
 		/// <summary>
+		/// Returns the <see cref="GitBlob"/> for the specified <see cref="GitTreeItem"/>.
+		/// </summary>
+		/// <param name="item">The tree item.</param>
+		/// <returns>A <see cref="GitBlob"/> object with the contents of that item.</returns>
+		public GitBlob GetBlob(GitTreeItem item)
+		{
+			return Get<GitBlob>(item.Url);
+		}
+
+		/// <summary>
 		/// Creates a new commit to the repository.
 		/// </summary>
 		/// <param name="user">The repository owner.</param>
@@ -147,6 +157,16 @@ namespace Logos.Git.GitHub
 
 			var request = PostJson(url, json);
 			return Get<GitTree>(url, request);
+		}
+
+		/// <summary>
+		/// Returns the <see cref="GitTree"/> for a specified <see cref="GitCommit"/>.
+		/// </summary>
+		/// <param name="commit">The commit.</param>
+		/// <returns>Information about the tree for that commit.</returns>
+		public GitTree GetTree(GitCommit commit)
+		{
+			return Get<GitTree>(commit.Tree.Url);
 		}
 
 		/// <summary>
