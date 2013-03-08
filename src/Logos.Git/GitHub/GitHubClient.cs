@@ -250,6 +250,10 @@ namespace Logos.Git.GitHub
 				using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8))
 					return reader.ReadToEnd();
 			}
+			catch (InvalidDataException ex)
+			{
+				Log.Error("Error requesting {0}.", uri.AbsoluteUri);
+			}
 			catch (WebException ex)
 			{
 				Log.Error("Error requesting {0}.", uri.AbsoluteUri);
