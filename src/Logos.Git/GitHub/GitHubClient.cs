@@ -211,21 +211,23 @@ namespace Logos.Git.GitHub
 				using (HttpWebResponse response = (HttpWebResponse) request.GetResponse())
 				using (Stream stream = response.GetResponseStream())
 				using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8))
-				{
 					return JsonUtility.FromJsonTextReader<T>(reader);
-				}
 			}
-			catch (FormatException)
+			catch (FormatException ex)
 			{
-				Log.Error("Error requesting {0}.", uri.AbsoluteUri);
+				Log.Error("{0} for {1} {2}: {3}", ex.GetType().Name, request.Method, uri.AbsoluteUri, ex.Message);
 			}
-			catch (JsonSerializationException)
+			catch (InvalidDataException ex)
 			{
-				Log.Error("Error requesting {0}.", uri.AbsoluteUri);
+				Log.Error("{0} for {1} {2}: {3}", ex.GetType().Name, request.Method, uri.AbsoluteUri, ex.Message);
+			}
+			catch (JsonSerializationException ex)
+			{
+				Log.Error("{0} for {1} {2}: {3}", ex.GetType().Name, request.Method, uri.AbsoluteUri, ex.Message);
 			}
 			catch (WebException ex)
 			{
-				Log.Error("Error requesting {0}.", uri.AbsoluteUri);
+				Log.Error("{0} for {1} {2}: {3}", ex.GetType().Name, request.Method, uri.AbsoluteUri, ex.Message);
 				ex.DisposeResponse();
 			}
 
@@ -252,11 +254,11 @@ namespace Logos.Git.GitHub
 			}
 			catch (InvalidDataException ex)
 			{
-				Log.Error("Error requesting {0}.", uri.AbsoluteUri);
+				Log.Error("{0} for {1} {2}: {3}", ex.GetType().Name, request.Method, uri.AbsoluteUri, ex.Message);
 			}
 			catch (WebException ex)
 			{
-				Log.Error("Error requesting {0}.", uri.AbsoluteUri);
+				Log.Error("{0} for {1} {2}: {3}", ex.GetType().Name, request.Method, uri.AbsoluteUri, ex.Message);
 				ex.DisposeResponse();
 			}
 
