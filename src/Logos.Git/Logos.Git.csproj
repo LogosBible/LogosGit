@@ -35,9 +35,9 @@
     <Reference Include="LibGit2Sharp">
       <HintPath>..\..\packages\LibGit2Sharp.0.9.5\lib\net35\LibGit2Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="Logos.Utility, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)' == 'Release'">
+    <Reference Include="Logos.Utility, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)' == 'Release'">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Logos.Utility.1.2.0\lib\net40\Logos.Utility.dll</HintPath>
+      <HintPath>..\..\..\Leeroy\packages\Logos.Utility.2.0.0\lib\net40\Logos.Utility.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
