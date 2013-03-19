@@ -4,7 +4,7 @@ obj/
 packages/
 
 # ignore generated files
-src/**/*.nupkg
+*.nupkg
 
 # ignore user-specific options files
 *.suo
