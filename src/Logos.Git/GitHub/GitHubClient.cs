@@ -170,6 +170,23 @@ namespace Logos.Git.GitHub
 		}
 
 		/// <summary>
+		/// Creates a new reference.
+		/// </summary>
+		/// <param name="user">The repository owner.</param>
+		/// <param name="repo">The repository name.</param>
+		/// <param name="name">The branch name.</param>
+		/// <param name="sha">The SHA of the commit to set this new reference to.</param>
+		/// <returns>A <see cref="GitReference"/> object containing the updated reference data.</returns>
+		public GitReference CreateReference(string user, string repo, string name, string sha)
+		{
+			string json = JsonUtility.ToJson(new GitCreateReference { Ref = "refs/heads/" + name, Sha = sha });
+			Uri url = new Uri(m_apiRootUrl, @"repos/{0}/{1}/git/refs".FormatInvariant(user, repo));
+
+			var request = PostJson(url, json);
+			return Get<GitReference>(url, request);
+		}
+
+		/// <summary>
 		/// Updates a reference with new data.
 		/// </summary>
 		/// <param name="user">The repository owner.</param>

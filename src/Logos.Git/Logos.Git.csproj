@@ -59,6 +59,7 @@
     <Compile Include="GitHub\GitCommitPerson.cs" />
     <Compile Include="GitHub\GitCommitTree.cs" />
     <Compile Include="GitHub\GitCreateCommit.cs" />
+    <Compile Include="GitHub\GitCreateReference.cs" />
     <Compile Include="GitHub\GitCreateTree.cs" />
     <Compile Include="GitHub\GitHubClient.cs" />
     <Compile Include="GitHub\GitHubCommit.cs" />
