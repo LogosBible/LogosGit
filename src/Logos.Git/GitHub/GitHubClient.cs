@@ -50,12 +50,13 @@ namespace Logos.Git.GitHub
 		/// <param name="user">The GitHub user/owner the repository is associated with.</param>
 		/// <param name="repo">The GitHub repository name.</param>
 		/// <param name="branch">The branch to query (ie 'master').</param>
+		/// <param name="refreshCache">If <c>true</c>, forces any cache of commit IDs to be refreshed.</param>
 		/// <returns>The SHA-1 hash string for the most recent commit.</returns>
-		public string GetLatestCommitId(string user, string repo, string branch)
+		public string GetLatestCommitId(string user, string repo, string branch, bool refreshCache = false)
 		{
 			if (UseGitDataApi)
 			{
-				Uri url = new Uri(@"http://gitdata/commits/latest/git/{0}/{1}/{2}".FormatInvariant(user, repo, branch));
+				Uri url = new Uri(@"http://gitdata/commits/latest/git/{0}/{1}/{2}?refreshCache={3}".FormatInvariant(user, repo, branch, refreshCache ? "true" : "false"));
 				string commitId = GetString(url);
 				return !string.IsNullOrWhiteSpace(commitId) ? commitId.Trim() : null;
 			}
