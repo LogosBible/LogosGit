@@ -56,7 +56,7 @@ namespace Logos.Git.GitHub
 		{
 			if (UseGitDataApi)
 			{
-				Uri url = new Uri(@"http://gitdata/commits/latest/git/{0}/{1}/{2}?refreshCache={3}".FormatInvariant(user, repo, branch, refreshCache ? "true" : "false"));
+				Uri url = new Uri(@"http://gitdata.lrscorp.net/commits/latest/git/{0}/{1}/{2}?refreshCache={3}".FormatInvariant(user, repo, branch, refreshCache ? "true" : "false"));
 				string commitId = GetString(url);
 				return !string.IsNullOrWhiteSpace(commitId) ? commitId.Trim() : null;
 			}
@@ -206,7 +206,7 @@ namespace Logos.Git.GitHub
 			// now that we've pushed a new branch pointer, force GitData to update its cache (there may be an
 			// unacceptably long delay between updating the reference and GitHub notifying GitData via the webhook)
 			if (UseGitDataApi)
-				GetString(new Uri(@"http://gitdata/commits/latest/git/{0}/{1}/{2}?refreshCache=true".FormatInvariant(user, repo, name)));
+				GetString(new Uri(@"http://gitdata.lrscorp.net/commits/latest/git/{0}/{1}/{2}?refreshCache=true".FormatInvariant(user, repo, name)));
 
 			return reference;
 		}
