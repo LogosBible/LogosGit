@@ -252,11 +252,12 @@ namespace Logos.Git.GitHub
 			return default(T);
 		}
 
-		private static HttpWebRequest CreateWebRequest(Uri uri)
+		private HttpWebRequest CreateWebRequest(Uri uri)
 		{
 			HttpWebRequest request = (HttpWebRequest) WebRequest.Create(uri);
 			request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
 			request.UserAgent = "GitHubClient";
+			AddCredentials(request);
 			return request;
 		}
 
@@ -286,7 +287,6 @@ namespace Logos.Git.GitHub
 		private HttpWebRequest PostJson(Uri url, string json, string method = "POST")
 		{
 			HttpWebRequest request = CreateWebRequest(url);
-			AddCredentials(request);
 			request.Method = method;
 			request.ContentType = "application/json; charset=utf-8";
 			byte[] jsonBytes = Encoding.UTF8.GetBytes(json);
