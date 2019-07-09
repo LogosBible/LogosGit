@@ -8,6 +8,10 @@ Prefix the description of the change with `[major]`, `[minor]` or `[patch]` in a
 
 ## Released
 
+### 0.6.1
+
+* Fix GitHub URLs in NuGet package metadata.
+
 ### 0.6.0
 
 * Add credentials to all GitHub requests.
