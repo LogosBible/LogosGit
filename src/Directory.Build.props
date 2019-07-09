@@ -10,8 +10,8 @@
     <RepositoryName>LogosGit</RepositoryName>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/LogosBible/$(RepositoryName)</PackageProjectUrl>
-    <PackageReleaseNotes>https://github.com/Faithlife/$(RepositoryName)/blob/master/VersionHistory.md#released</PackageReleaseNotes>
-    <RepositoryUrl>https://github.com/Faithlife/$(RepositoryName).git</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/LogosBible/$(RepositoryName)/blob/master/VersionHistory.md#released</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/LogosBible/$(RepositoryName).git</RepositoryUrl>
     <Authors>Faithlife Corporation</Authors>
     <Copyright>Copyright Faithlife Corporation</Copyright>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
