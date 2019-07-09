@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <VersionPrefix>0.5.2</VersionPrefix>
+    <VersionPrefix>0.6.0</VersionPrefix>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
@@ -10,6 +10,7 @@
     <RepositoryName>LogosGit</RepositoryName>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/LogosBible/$(RepositoryName)</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/Faithlife/$(RepositoryName)/blob/master/VersionHistory.md#released</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/Faithlife/$(RepositoryName).git</RepositoryUrl>
     <Authors>Faithlife Corporation</Authors>
     <Copyright>Copyright Faithlife Corporation</Copyright>
