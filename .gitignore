@@ -2,6 +2,7 @@
 bin/
 obj/
 packages/
+.vs/
 
 # ignore generated files
 *.nupkg
